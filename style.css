@@ -176,5 +176,25 @@ footer {
  
 }
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+.t{
+  font-size: 3em;
+  font-weight: 800;
+  font-style: italic;
+}
+#sbutton{
+  width: 150px;
+  height: 44px;
+  color:white;
+  background: linear-gradient(111deg, rgb(0, 0, 0) 0%, rgb(8, 61, 8) 90%);
+  border-radius: 5px;
+  border: 1px solid #1eff38;
+}
+#sbutton:hover{
+  box-shadow: 15px 15px 30px rgba(56, 255, 34, 0.3);
 
-
+}
+#item{
+  background: linear-gradient(111deg, rgb(2, 27, 11) 0%, rgb(18, 107, 18) 90%);
+  color: #d4ffd9;
+  border-radius: 10px;
+}
