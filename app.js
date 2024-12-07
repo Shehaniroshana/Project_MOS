@@ -11,12 +11,11 @@ function goOrders() {
   console.log(username + "" + password);
 
   if (username == "java" && password == 12345) {
-    alert("sacsus..")
     window.location.href = "admin.html";
 
   } else {
-    alert("try agn..")
-  }
+     alert("12345")
+   }
 
 }
 
@@ -45,7 +44,6 @@ let cart = [];
 
 
 
-// Render the menu items
 let burgersMenu = '';
 burgers.forEach(element => {
   burgersMenu += `
@@ -71,7 +69,7 @@ burgers.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -79,8 +77,6 @@ burgers.forEach(element => {
 });
 
 document.getElementById("burgers").innerHTML = burgersMenu;
-
-
 
 
 let Submarines = [
@@ -121,7 +117,7 @@ Submarines.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -166,7 +162,7 @@ Fries.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -211,7 +207,7 @@ pastas.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -253,7 +249,7 @@ chickens.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -269,6 +265,7 @@ let Beverages = [
 { itemCode: "B1046", itemName: "Sprite (330ml)", price: 1500.00, discount: 3 ,img:"https://i.pinimg.com/736x/da/29/54/da29549b7fd367669b7d8502d9d0028c.jpg"},
 { itemCode: "B1047", itemName: "Mirinda (330ml)", price: 850.00, discount: 7 ,img:"https://i.pinimg.com/736x/99/0b/46/990b466538fbdc1f4b6722a6a393e908.jpg"},
 ]
+
 
 
 let BeveragesMenu = '';
@@ -297,7 +294,7 @@ Beverages.forEach(element => {
           <option value="5">5</option>
         </select>
         <input type="button" value="Order Now" 
-               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}')" 
+               onclick="addToCart('${element.price}', '${element.itemCode}', '${element.itemName}','${element.discount}')" 
                class="btn btn-primary">
       </div>
     </div>
@@ -387,40 +384,76 @@ function search(){
    console.log(getitem);
    console.log(index);
 
-   document.getElementById("searchitem").innerHTML=` <div class="card rounded-5 bg-black " 
-         style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
-                color: white; display: inline-block; margin-right: 15px;">
-      <img src="${menuItems[index].img}" class="card-img-top rounded-5" 
-           alt="${menuItems[index].itemName}" 
-           style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
-      <div class="card-body">
-        <h5 class="card-title">${menuItems[index].itemName}</h5>
-        <p class="card-text">Price: LKR ${menuItems[index].price}</p>
-        <p class="card-text">Discount: ${menuItems[index].discount}%</p>
-        <select id="qty-${menuItems[index].itemCode}" 
-                class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <input type="button" value="Order Now" 
-               onclick="addToCart('${menuItems[index].price}', '${menuItems[index].itemCode}', '${menuItems[index].itemName}')" 
-               class="btn btn-primary">
-         <input type="button" value="Close" 
-               onclick="closesearch()" 
-               class="btn btn-primary">      
-      </div>
-    </div>`;
-
-   
-   
+   document.getElementById("searchitem").innerHTML = `
+  <div class="card rounded-5 bg-black position-relative" 
+       style="width: 350px; border: 2px solid #1eff38; 
+              box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+              color: white; display: inline-block; margin-right: 15px;">
+    
+    <!-- Close Icon -->
+    <a href="#" class="text-end position-absolute"onclick="closesearch()" 
+       style="top: 10px; right: 10px; display: inline-block; padding: 5px; text-decoration: none;">
+      <img src="https://img.icons8.com/?size=100&id=67494&format=png&color=FFFFFF" 
+           alt="Close Icon" 
+           style="width: 30px; border: 1px solid #31ff22; border-radius: 10px; transition: transform 0.3s ease;">
+    </a>
+    
+    <!-- Card Image -->
+    <img src="${menuItems[index].img}" class="card-img-top rounded-5" 
+         alt="${menuItems[index].itemName}" 
+         style="width: 100%; height: 300px; object-fit: cover; 
+                box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+    
+    <!-- Card Body -->
+    <div class="card-body">
+      <h5 class="card-title">${menuItems[index].itemName}</h5>
+      <p class="card-text">Price: LKR ${menuItems[index].price}</p>
+      <p class="card-text">Discount: ${menuItems[index].discount}%</p>
+      <select id="qty-${menuItems[index].itemCode}" 
+              class="form-select mb-3 bg-black text-white" 
+              style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="button" value="Order Now" 
+             onclick="addToCart('${menuItems[index].price}', '${menuItems[index].itemCode}', '${menuItems[index].itemName}','${menuItems[index].discount}')" 
+             class="btn btn-primary">
+    </div>
+  </div>`;
+  
 }
 function  closesearch(){
+
   document.getElementById("searchitem").innerHTML=``;
   document.getElementById("item").value=""
+
+}
+function addToCart(price, itemCode, name, discount) {
+  const qty = document.getElementById(`qty-${itemCode}`).value;
+  
+  // Check if discount is undefined or not passed
+  if (discount === undefined) {
+    discount = 0; // Default to 0 if no discount is provided
+  }
+  
+  const cartItem = {
+    itemCode: itemCode,
+    name: name,
+    price: price,
+    qty: qty,
+    discount: discount // Add the discount to the cart item
+  };
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(cartItem);
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  console.log(cart);
+}
+
+function add() {
+  window.location.href = "customerPage.html"; 
 }
