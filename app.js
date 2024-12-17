@@ -366,32 +366,36 @@ const menuItems = [
 
 /////////////////////////////////////////////////search()
 
-function search(){
+function search() {
+  let item = document.getElementById("item").value.trim().toLowerCase();
+  
+  let getitem = '';
+  let index = -1;
 
-  let item=document.getElementById("item").value;
-    
-  let getitem='';
-  let index='';
-   for (let i=0;i<menuItems.length;i++) {
-        
-    if(item===menuItems[i].itemName){
-         getitem=menuItems[i].itemName;
-        index=i;
-         break;
+  for (let i = 0; i < menuItems.length; i++) {
+    if (menuItems[i].itemName.toLowerCase().includes(item)) {
+      getitem = menuItems[i].itemName;
+      index = i;
+      break;
     }
+  }
 
-   }
-   console.log(getitem);
-   console.log(index);
+  if (index === -1) {
+    document.getElementById("searchitem").innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        No items found matching "${item}".
+      </div>`;
+    return;
+  }
 
-   document.getElementById("searchitem").innerHTML = `
+  document.getElementById("searchitem").innerHTML = `
   <div class="card rounded-5 bg-black position-relative" 
        style="width: 350px; border: 2px solid #1eff38; 
               box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
               color: white; display: inline-block; margin-right: 15px;">
     
     <!-- Close Icon -->
-    <a href="#" class="text-end position-absolute"onclick="closesearch()" 
+    <a href="#" class="text-end position-absolute" onclick="closesearch()" 
        style="top: 10px; right: 10px; display: inline-block; padding: 5px; text-decoration: none;">
       <img src="https://img.icons8.com/?size=100&id=67494&format=png&color=FFFFFF" 
            alt="Close Icon" 
@@ -419,12 +423,13 @@ function search(){
         <option value="5">5</option>
       </select>
       <input type="button" value="Order Now" 
-             onclick="addToCart('${menuItems[index].price}', '${menuItems[index].itemCode}', '${menuItems[index].itemName}','${menuItems[index].discount}')" 
+             onclick="addToCart('${menuItems[index].price}', '${menuItems[index].itemCode}', '${menuItems[index].itemName}', '${menuItems[index].discount}')" 
              class="btn btn-primary">
     </div>
   </div>`;
-  
 }
+
+
 function  closesearch(){
 
   document.getElementById("searchitem").innerHTML=``;
@@ -434,9 +439,8 @@ function  closesearch(){
 function addToCart(price, itemCode, name, discount) {
   const qty = document.getElementById(`qty-${itemCode}`).value;
   
-  // Check if discount is undefined or not passed
   if (discount === undefined) {
-    discount = 0; // Default to 0 if no discount is provided
+    discount = 0; 
   }
   
   const cartItem = {
@@ -444,7 +448,7 @@ function addToCart(price, itemCode, name, discount) {
     name: name,
     price: price,
     qty: qty,
-    discount: discount // Add the discount to the cart item
+    discount: discount 
   };
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
