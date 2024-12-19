@@ -6,7 +6,6 @@ body {
 
 .n {
   background: linear-gradient(111deg, rgba(0, 0, 0, 1) 0%, rgb(14, 14, 14) 90%);
-  box-shadow: 15px 15px 30px rgba(37, 255, 13, 0.3);
 }
 
 .nav-link {

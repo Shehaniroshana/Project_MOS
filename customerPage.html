@@ -119,9 +119,14 @@
 
     <script>
       function generateOrderId() {
-        const orderId = "00001";
-        return orderId;
-      }
+  const orderCount = localStorage.getItem("orderCount") || 0;  
+  const newOrderCount = parseInt(orderCount) + 1;  
+  const orderId = `ODR#${newOrderCount.toString().padStart(4, '0')}`; 
+
+  localStorage.setItem("orderCount", newOrderCount); 
+  return orderId;
+}
+
 
       function displayCart() {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -129,18 +134,18 @@
 
         if (cart.length > 0) {
           let cartHTML = `
-      <table>
-        <thead>
-          <tr>
-            <th>Item Code</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Discount</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
+    <table>
+      <thead>
+        <tr>
+          <th>Item Code</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
     `;
           let totalAmount = 0;
           cart.forEach((item) => {
@@ -162,13 +167,13 @@
           });
 
           cartHTML += `
-      <tr>
-        <td colspan="5"><strong>Total Amount</strong></td>
-        <td><strong>LKR ${totalAmount}</strong></td>
-      </tr>
-      </tbody>
-    </table>
-    `;
+    <tr>
+      <td colspan="5"><strong>Total Amount</strong></td>
+      <td><strong>LKR ${totalAmount}</strong></td>
+    </tr>
+    </tbody>
+  </table>
+  `;
 
           cartDetailsDiv.innerHTML = cartHTML;
         } else {
@@ -198,15 +203,12 @@
         };
 
         let orders = JSON.parse(localStorage.getItem("orders")) || {};
-        if (!orders[orderId]) {
-          orders[orderId] = order;
-        }
+        orders[orderId] = order;
 
         localStorage.setItem("orders", JSON.stringify(orders));
         localStorage.removeItem("cart");
 
         alert("Order placed successfully!");
-        window.location.href = "orderConfirmation.html";
       }
 
       function clearCart() {

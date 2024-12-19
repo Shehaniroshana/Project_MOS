@@ -49,19 +49,19 @@ burgers.forEach(element => {
   burgersMenu += `
     <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+                 
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                  ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                style="">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -97,19 +97,19 @@ Submarines.forEach(element => {
   subMenu += `
      <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+               
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                 ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                style="">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -142,19 +142,19 @@ Fries.forEach(element => {
   FriesMenu += `
     <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+                 
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                  ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                style="">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -187,19 +187,19 @@ pastas.forEach(element => {
   pastaMenu += `
      <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+                 
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                 ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                ">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -229,19 +229,19 @@ chickens.forEach(element => {
   chickenMenu += `
      <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
+                
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                  ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                style="">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -274,19 +274,18 @@ Beverages.forEach(element => {
   BeveragesMenu += `
      <div class="card rounded-5 bg-black " 
          style="width: 350px; border: 2px solid #1eff38; 
-                box-shadow: 5px 5px 10px rgba(54, 255, 31, 0.3); 
                 color: white; display: inline-block; margin-right: 15px;">
       <img src="${element.img}" class="card-img-top rounded-5" 
            alt="${element.itemName}" 
            style="width: 100%; height: 300px; object-fit: cover; 
-                  box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                  ">
       <div class="card-body">
         <h5 class="card-title">${element.itemName}</h5>
         <p class="card-text">Price: LKR ${element.price}</p>
         <p class="card-text">Discount: ${element.discount}%</p>
         <select id="qty-${element.itemCode}" 
                 class="form-select mb-3 bg-black text-white" 
-                style="box-shadow: 5px 5px 20px rgba(54, 255, 31, 0.3);">
+                style="">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
